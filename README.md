@@ -14,6 +14,6 @@
 
 ### Refer to our [documentation](https://docs.yflip-phone.com/custom-apps) for more information on how to use the templates.
 
-Store: [Tebex]https://scripts.teamsgg.dev/
-Phone Preview [YFlip Phone](https://yflip-phone.com/)
+Store: [Tebex](https://scripts.teamsgg.dev/)  
+Phone Preview [YFlip Phone](https://yflip-phone.com/)  
 Discord: [Join](https://discord.gg/cfxwhm6p5z)
