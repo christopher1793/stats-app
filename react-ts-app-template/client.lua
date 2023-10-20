@@ -15,8 +15,6 @@ CreateThread(function()
     end
 
     local function AddApp()
-        print('CustomApp:AddApp')
-
         local dataLoaded = exports['yflip-phone']:GetDataLoaded()
         while not dataLoaded do
             Wait(500)
@@ -31,8 +29,6 @@ CreateThread(function()
             -- ui = "http://localhost:3000", -- dev version
             icon = "https://i.ibb.co/QY127HV/app-icon-placeholder.png"
         })
-
-        print('CustomApp:AppAdded')
     end
 
     AddApp()
