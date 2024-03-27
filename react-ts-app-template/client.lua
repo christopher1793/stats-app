@@ -1,4 +1,5 @@
 local key = "react-ts-app-template"
+local phoneResourceName = "yseries" -- options:  "yflip-phone", "yphone", "yseries"
 
 ---@param action string The action you wish to target
 ---@param data any The data you wish to send along with this action
@@ -10,18 +11,18 @@ function SendUIAction(action, data)
 end
 
 CreateThread(function()
-    while GetResourceState("yflip-phone") ~= "started" do
+    while GetResourceState(phoneResourceName) ~= "started" do
         Wait(500)
     end
 
     local function AddApp()
-        local dataLoaded = exports['yflip-phone']:GetDataLoaded()
+        local dataLoaded = exports['yseries']:GetDataLoaded()
         while not dataLoaded do
             Wait(500)
-            dataLoaded = exports['yflip-phone']:GetDataLoaded()
+            dataLoaded = exports['yseries']:GetDataLoaded()
         end
 
-        exports["yflip-phone"]:AddCustomApp({
+        exports['yseries']:AddCustomApp({
             key = key,
             name = "App Template",
             defaultApp = true,
@@ -34,7 +35,7 @@ CreateThread(function()
     AddApp()
 
     AddEventHandler("onResourceStart", function(resource)
-        if resource == "yflip-phone" then
+        if resource == phoneResourceName then
             AddApp()
         end
     end)
@@ -45,7 +46,7 @@ CreateThread(function()
 
     AddEventHandler("onResourceStop", function(resource)
         if resource == GetCurrentResourceName() then
-            exports["yflip-phone"]:RemoveCustomApp(key)
+            exports['yseries']:RemoveCustomApp(key)
         end
     end)
 end)

@@ -1,8 +1,8 @@
 fx_version "cerulean"
 game "gta5"
 
-title "YFlip Phone - Custom App Template | React TS"
-description "A template for creating custom apps for the YFlip Phone."
+title "YSeries - Custom App Template | React TS"
+description "A template for creating custom apps for the YSeries Phones."
 author "TeamsGG Development"
 
 client_script "client.lua"
