@@ -16,19 +16,22 @@ CreateThread(function()
     end
 
     local function AddApp()
-        local dataLoaded = exports['yseries']:GetDataLoaded()
+        local dataLoaded = exports[phoneResourceName]:GetDataLoaded()
         while not dataLoaded do
             Wait(500)
-            dataLoaded = exports['yseries']:GetDataLoaded()
+            dataLoaded = exports[phoneResourceName]:GetDataLoaded()
         end
 
-        exports['yseries']:AddCustomApp({
+        exports[phoneResourceName]:AddCustomApp({
             key = key,
             name = "App Template",
             defaultApp = true,
             ui = "https://cfx-nui-" .. GetCurrentResourceName() .. "/ui/dist/index.html", -- built version
             -- ui = "http://localhost:3000", -- dev version
-            icon = "https://i.ibb.co/QY127HV/app-icon-placeholder.png"
+            icon = {
+                yos = "https://cdn-icons-png.flaticon.com/512/2314/2314912.png",    -- YPhone OS icon.
+                humanoid = "https://cdn-icons-png.flaticon.com/512/566/566312.png", -- YFlip OS icon.
+            },
         })
     end
 
@@ -46,7 +49,7 @@ CreateThread(function()
 
     AddEventHandler("onResourceStop", function(resource)
         if resource == GetCurrentResourceName() then
-            exports['yseries']:RemoveCustomApp(key)
+            exports[phoneResourceName]:RemoveCustomApp(key)
         end
     end)
 end)
