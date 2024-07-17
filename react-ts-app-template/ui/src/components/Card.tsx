@@ -7,7 +7,7 @@ const Card = (props) => {
     return (
             <div className="w-[90%] h-[10%] outline-2 outline-red flex-col text-[#C9CFDB]">
             <div className="flex flex-row justify-between w-[100%] items-end h-[50%]">
-                <div className="text-lg uppercase font-bold">
+                <div className="text-lg uppercase font-medium">
                     {props.data.label}
                 </div>
                 <div>

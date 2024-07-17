@@ -35,6 +35,46 @@ const App = () => {
       label: 'Strength',
       value: 500,
       max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
+    },
+    {
+      label: 'Strength',
+      value: 500,
+      max: 1000
     }
   ]
 
@@ -50,7 +90,7 @@ const App = () => {
       fetchNui("get-nui-data", null, resourceName).then((data: string) =>
         setNuiData(data)
       );
-      fetchNui("prp_experience:setName", null, resourceName).then((data: any) =>
+      fetchNui("prp_experience:setData", null, resourceName).then((data: any) =>
         setPlayerName(data.name)
       );
     }
@@ -68,7 +108,7 @@ const App = () => {
               borderImageSlice: 1,
             }}
           >
-            <div className="text-2xl font-bold uppercase"> Reputation Points </div>
+            <div className="text-2xl font-medium uppercase"> Reputation Points </div>
             <div className="text-md text-[#B12032] uppercase"> {playerName} </div>
           </div>
           <div className="flex flex-col h-[90%] w-[100%] items-center">
