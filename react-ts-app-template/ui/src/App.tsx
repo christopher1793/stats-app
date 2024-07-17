@@ -15,69 +15,10 @@ const App = () => {
   const [playerName, setPlayerName] = useState("Player Name");
   const [nuiData, setNuiData] = useState("");
   const appDiv = useRef(null);
-  const experience: Experience = [
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    },
-    {
-      label: 'Strength',
-      value: 500,
-      max: 1000
-    }
-  ]
 
+  const [experience, setExperience] = useState<Experience>([])
+
+  
   useEffect(() => {
     document.getElementsByTagName("html")[0].style.visibility = "visible";
     document.getElementsByTagName("body")[0].style.visibility = "visible";
@@ -90,9 +31,23 @@ const App = () => {
       fetchNui("get-nui-data", null, resourceName).then((data: string) =>
         setNuiData(data)
       );
-      fetchNui("prp_experience:setData", null, resourceName).then((data: any) =>
+      fetchNui("prp_experience:setData", null, resourceName).then((data: any) => {
         setPlayerName(data.name)
-      );
+        if (experience.length > 0) {
+          const updatedExperience = experience.map(itemA => {
+            const matchingItem = data.find(itemB => itemB.label === itemA.label);
+  
+            if (matchingItem && itemA.value !== matchingItem.value) {
+              return {...itemA, value: matchingItem.value}
+            }
+  
+            return itemA
+          })
+          setExperience(updatedExperience)
+        } else {
+          setExperience(data)
+        }
+      });
     }
   }, []);
 

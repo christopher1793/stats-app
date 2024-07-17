@@ -46,6 +46,34 @@ CreateThread(function()
     RegisterNuiCallback('get-nui-data', function(_, cb)
         cb('I came from client.lua')
     end)
+    
+    RegisterNuiCallback('prp_experience:setData', function(_), cb)
+        cb({
+            name = "Bro",
+            stats = {
+                {
+                    label = "Strength",
+                    value = 500,
+                    max = 1000
+                },
+                {
+                    label = "Strength",
+                    value = 500,
+                    max = 1000
+                },
+                {
+                    label = "Strength",
+                    value = 500,
+                    max = 1000
+                },
+                {
+                    label = "Strength",
+                    value = 500,
+                    max = 1000
+                }
+            }
+        })
+    end)
 
     AddEventHandler("onResourceStop", function(resource)
         if resource == GetCurrentResourceName() then
